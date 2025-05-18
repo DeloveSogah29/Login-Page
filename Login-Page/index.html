@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Login</h1>
+        <form>
+            <div class="input-group">
+                <label for="Username"><i class="bi bi-person-circle"></i></label>
+                <input type="text" name="Username" id="username" placeholder="Username" required>
+            </div>
+            <div class="input-group">
+                <label for="email"><span>@</span></label>
+                <input type="email" name="Email" id="email" placeholder="Email" required>
+            </div>
+            <div class="input-group">
+                <label for="password"><i class="bi bi-lock"></i></label>
+                <input type="password" name="Password" id="password-input" placeholder="Password" required>
+            </div> 
+            <div >
+                <input class="show" type="checkbox" id="show-password" onclick="togglePassword()">
+                <p class="forgot"><a href="forgot-password.html">Forgot Password</a></p>
+            </div>
+                <button class="f-btn" type="submit" id="login-button">Login</button>
+        </form>
+        <p>Don't have an account? <a href="register.html">Register</a></p></div>
+    </div>   
+
+
+    <script>
+        function togglePassword() {
+            const passwordInput = document.getElementById('password-input');
+            const showPasswordCheckbox = document.getElementById('show-password');
+            if (showPasswordCheckbox.checked) {
+                passwordInput.type = 'text';
+            } else {
+                passwordInput.type = 'password';
+            }
+        }
+        document.getElementById('login-button').addEventListener('click', function() {
+            const username = document.getElementById('username').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password-input').value;
+
+            if (username && email && password) {
+                alert('Login successful!');
+            } else {
+                alert('Please fill in all fields.');
+            }
+        });
+    </script>
+</body>
+</html>
